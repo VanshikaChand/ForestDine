@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --canopy: #2c3d2f;
+  --canopy-deep: #1c2a1f;
+  --moss: #6b8f5c;
+  --moss-light: #8fae7c;
+  --honey: #c9923d;
+  --bark: #6b4f3b;
+  --parchment: #f6f2e7;
+  --parchment-dim: #ece4d1;
+}
+
+@theme inline {
+  --color-canopy: var(--canopy);
+  --color-canopy-deep: var(--canopy-deep);
+  --color-moss: var(--moss);
+  --color-moss-light: var(--moss-light);
+  --color-honey: var(--honey);
+  --color-bark: var(--bark);
+  --color-parchment: var(--parchment);
+  --color-parchment-dim: var(--parchment-dim);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-work-sans);
+}
+
+body {
+  background: var(--parchment);
+  color: var(--canopy-deep);
+  font-family: var(--font-body), sans-serif;
+}
+
+@keyframes dapple-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-3%, 2%) scale(1.06);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.dapple-light {
+  animation: dapple-drift 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dapple-light {
+    animation: none;
+  }
+}

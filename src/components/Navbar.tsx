@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { href: "/", label: "Stays" },
@@ -13,7 +14,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-parchment/90 backdrop-blur border-b border-canopy/10">
+    <header className="sticky top-0 z-50 bg-parchment/90 dark:bg-canopy-deep/90 backdrop-blur border-b border-canopy/10 dark:border-parchment/10">
       <nav className="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center justify-between">
         <Link
           href="/"
@@ -36,9 +37,10 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/login"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-canopy text-parchment text-sm font-medium"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-canopy text-parchment text-sm font-medium dark:bg-parchment dark:text-canopy-deep"
             aria-label="Account"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none">

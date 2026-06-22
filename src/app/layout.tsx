@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Work_Sans } from "next/font/google";
+import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -30,9 +31,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${fraunces.variable} ${workSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-parchment text-canopy-deep">
-        {children}
+      <body className="min-h-full flex flex-col bg-parchment dark:bg-canopy-deep text-canopy-deep dark:text-parchment transition-colors">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

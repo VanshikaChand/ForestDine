@@ -30,6 +30,11 @@ body {
   font-family: var(--font-body), sans-serif;
 }
 
+.dark body {
+  background: var(--canopy-deep);
+  color: var(--parchment);
+}
+
 @keyframes dapple-drift {
   0% {
     transform: translate(0, 0) scale(1);

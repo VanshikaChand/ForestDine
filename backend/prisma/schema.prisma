@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Stay {
+  id            Int       @id @default(autoincrement())
+  title         String
+  location      String
+  description   String
+  pricePerNight Int
+  tag           String
+  rating        Float     @default(0)
+  available     Boolean   @default(true)
+  bookings      Booking[]
+  createdAt     DateTime  @default(now())
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  stay      Stay     @relation(fields: [stayId], references: [id])
+  stayId    Int
+  guestName String
+  checkIn   DateTime
+  checkOut  DateTime
+  status    String   @default("pending") // "pending" | "confirmed" | "cancelled"
+  createdAt DateTime @default(now())
+}
